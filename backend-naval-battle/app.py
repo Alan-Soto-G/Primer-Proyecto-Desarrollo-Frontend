@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from weather_api import get_weather 
 import json
 import os
 
@@ -57,6 +58,13 @@ def get_countries():
     countries = load_countries()
     return jsonify(countries)
 
+#Ruta que el frontend podrá usar para obtener el clima.
+@app.route("/weather", methods=["GET"])
+def weather():
+    """Ruta para obtener el clima de una ciudad."""
+    city = request.args.get("city", default="Bogotá", type=str)
+    weather_data = get_weather(city)
+    return jsonify(weather_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
