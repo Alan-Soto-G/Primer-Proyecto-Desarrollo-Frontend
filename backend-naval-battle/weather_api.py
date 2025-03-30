@@ -28,4 +28,4 @@ def get_weather(city):
 
 # Prueba llamando a la función
 if __name__ == "__main__":
-    print(get_weather("Cali"))
+    print(get_weather("Bogotá"))
