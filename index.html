@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hundir la Flota</title>
+    <link rel="stylesheet" href="/src/assets/styles.css">
+    <meta name="description" content="Juego de Hundir la Flota (Batalla Naval) desarrollado con JavaScript">
+</head>
+<body>
+    <div id="app">
+        <main class="game-container">
+            <header class="game-header">
+                <h1>Hundir la Flota</h1>
+                <div id="message" class="message" aria-live="polite">Preparando juego...</div>
+            </header>
+            
+            <section class="game-content">
+                <div class="boards-container">
+                    <article class="board-wrapper" aria-label="Tablero del Jugador">
+                        <h2>Tus Barcos</h2>
+                        <div id="human-board" class="board" role="grid"></div>
+                    </article>
+                    
+                    <article class="board-wrapper" aria-label="Tablero de la Máquina">
+                        <h2>Máquina</h2>
+                        <div id="computer-board" class="board" role="grid"></div>
+                    </article>
+                </div>
+                
+                <aside class="game-info">
+                    <div class="scores">
+                        <p>Jugador: <span id="human-score" aria-live="polite">0</span></p>
+                        <p>Máquina: <span id="computer-score" aria-live="polite">0</span></p>
+                    </div>
+
+                    <div class="controls">
+                        <button id="restart-btn" class="btn" aria-label="Reiniciar el juego">
+                            <span class="btn-icon">🔄</span> Reiniciar Juego
+                        </button>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./frontend-naval-battle/src/main.js"></script>
+</body>
+</html>
