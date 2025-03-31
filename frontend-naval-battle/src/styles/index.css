@@ -1,0 +1,43 @@
+.custom-select {
+    width: 250px;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.select-selected {
+    background-color: #f1f1f1;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.select-selected img {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.select-items {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.select-items div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select-items div img {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+}

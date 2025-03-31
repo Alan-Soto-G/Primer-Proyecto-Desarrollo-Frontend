@@ -7,8 +7,9 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-DB_FILE = "database/scores.json"
-COUNTRY_FILE = "database/countries.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(BASE_DIR, "database", "scores.json")
+COUNTRY_FILE = os.path.join(BASE_DIR, "database", "countries.json")
 
 def load_countries():
     if os.path.exists(COUNTRY_FILE):
