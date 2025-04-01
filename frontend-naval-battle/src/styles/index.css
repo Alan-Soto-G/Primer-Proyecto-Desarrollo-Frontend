@@ -1,54 +1,34 @@
-/* Reset completo y optimizado */
+/* RESET TOTAL - Elimina márgenes ocultos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base al 100% del viewport SIN scroll */
 html, body {
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-/* Fondo full-screen ultra-optimizado */
-.fondo-fullscreen {
+/* Fondo que cubre TODO */
+.fondo-completo {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('tu-imagen.webp');
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/fondo.webp'); /* Cambia la ruta */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Efecto parallax suave */
     z-index: -1;
-    /* Mejora de nitidez */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
 }
 
-/* Contenido superpuesto (opcional) */
-.contenido {
-    position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    padding-top: 20vh;
-}
-
-/* Ajustes específicos para dispositivos */
-@media (max-width: 768px) {
-    .fondo-fullscreen {
-        background-attachment: scroll; /* Mejor rendimiento en móviles */
-        background-image: url('tu-imagen-mobile.webp'); /* Versión optimizada para móvil */
-    }
-}
-
-/* Soporte para navegadores antiguos */
-@supports not (background-attachment: fixed) {
-    .fondo-fullscreen {
-        background-attachment: scroll;
+/* Ajuste ESPECÍFICO para iPad (4:3) */
+@media (aspect-ratio: 4/3) {
+    .fondo-completo {
+        background-size: 100% 100%; /* Fuerza estiramiento */
     }
 }
