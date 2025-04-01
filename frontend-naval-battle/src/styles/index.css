@@ -1,43 +1,54 @@
-.custom-select {
-    width: 250px;
-    position: relative;
-    font-family: Arial, sans-serif;
+/* Reset completo y optimizado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.select-selected {
-    background-color: #f1f1f1;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-}
-
-.select-selected img {
-    width: 20px;
-    height: 15px;
-    margin-right: 10px;
-}
-
-.select-items {
-    position: absolute;
+html, body {
     width: 100%;
-    background: white;
-    border: 1px solid #ccc;
-    max-height: 200px;
-    overflow-y: auto;
-    display: none;
+    height: 100%;
+    overflow-x: hidden;
 }
 
-.select-items div {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+/* Fondo full-screen ultra-optimizado */
+.fondo-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('tu-imagen.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto parallax suave */
+    z-index: -1;
+    /* Mejora de nitidez */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
-.select-items div img {
-    width: 20px;
-    height: 15px;
-    margin-right: 10px;
+/* Contenido superpuesto (opcional) */
+.contenido {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 20vh;
+}
+
+/* Ajustes específicos para dispositivos */
+@media (max-width: 768px) {
+    .fondo-fullscreen {
+        background-attachment: scroll; /* Mejor rendimiento en móviles */
+        background-image: url('tu-imagen-mobile.webp'); /* Versión optimizada para móvil */
+    }
+}
+
+/* Soporte para navegadores antiguos */
+@supports not (background-attachment: fixed) {
+    .fondo-fullscreen {
+        background-attachment: scroll;
+    }
 }
