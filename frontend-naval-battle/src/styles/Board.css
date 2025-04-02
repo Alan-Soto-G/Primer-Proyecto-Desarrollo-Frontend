@@ -12,16 +12,19 @@
     margin: 0;
 }
 
-.cell {
+.cell, .cell-image {
     width: 25px;
     height: 25px;
     padding: 0;
     border: 1px solid #333;
-    cursor: pointer;
     box-sizing: border-box;
 }
 
-.cell img {
+.cell {
+    cursor: pointer;
+}
+
+.cell img, .cell-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -30,14 +33,14 @@
 
 /* Media queries para hacerlo responsive */
 @media (min-width: 600px) {
-    .cell {
+    .cell, .cell-image {
         width: 30px;
         height: 30px;
     }
 }
 
 @media (min-width: 900px) {
-    .cell {
+    .cell, .cell-image {
         width: 35px;
         height: 35px;
     }
