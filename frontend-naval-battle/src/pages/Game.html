@@ -5,13 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naval Battle</title>
     <link rel="stylesheet" href="../styles/Board.css">
-    <script src="../models/Board.js"></script>
+    <script type="module" src="../models/Board.js"></script>
+    <script type="module" src="../models/Juego.js"></script>
 </head>
 <body>
     <h1>Naval Battle</h1>
+    <p>Coloca tus barcos primero, luego ataca el tablero enemigo.</p>
+    
     <div class="boards-container">
         <div id="board-p1" class="board"></div>
         <div id="board-m1" class="board"></div>
     </div>
+    
+    <script type="module">
+        import { Juego } from '../models/Juego.js';
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const juego = new Juego();
+            juego.iniciar(); // Inicializa el juego
+
+            let colocandoBarcos = true; // Estado para saber si estamos colocando barcos
+
+            document.getElementById("board-p1").addEventListener("click", (event) => {
+                if (!colocandoBarcos) return; // Si ya se colocaron los barcos, ignorar
+                
+                const target = event.target.closest("button");
+                if (!target) return;
+                
+                let fila = parseInt(target.dataset.row);
+                let columna = parseInt(target.dataset.col);
+                
+                if (juego.colocarBarcoUsuario(fila, columna)) {
+                    console.log("Barco colocado en:", fila, columna);
+                }
+
+                if (juego.barcosColocados()) {
+                    colocandoBarcos = false;
+                    console.log("Todos los barcos colocados, ¡empieza la batalla!");
+                }
+            });
+            
+            document.getElementById("board-m1").addEventListener("click", (event) => {
+                if (colocandoBarcos) return; // No atacar si aún no se han colocado los barcos
+                
+                const target = event.target.closest("button");
+                if (!target) return;
+                
+                let fila = parseInt(target.dataset.row);
+                let columna = parseInt(target.dataset.col);
+                
+                juego.realizarDisparo(fila, columna);
+            });
+        });
+    </script>
 </body>
 </html>

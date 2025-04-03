@@ -6,17 +6,30 @@ export class Tablero {
         this.barcos = [];
     }
 
-    colocarBarco(barco, fila, columna, horizontal = true) {
-        if (horizontal) {
-            for (let i = 0; i < barco.tamaño; i++) {
-                this.matriz[fila][columna + i] = barco.id;
+    colocarBarco(fila, columna, longitud, horizontal) {
+        if (this.puedeColocarBarco(fila, columna, longitud, horizontal)) {
+            for (let i = 0; i < longitud; i++) {
+                if (horizontal) {
+                    this.matriz[fila][columna + i] = '🚢';
+                } else {
+                    this.matriz[fila + i][columna] = '🚢';
+                }
             }
-        } else {
-            for (let i = 0; i < barco.tamaño; i++) {
-                this.matriz[fila + i][columna] = barco.id;
+            return true;
+        }
+        return false;
+    }
+
+    puedeColocarBarco(fila, columna, longitud, horizontal) {
+        for (let i = 0; i < longitud; i++) {
+            let f = horizontal ? fila : fila + i;
+            let c = horizontal ? columna + i : columna;
+
+            if (f >= this.tamaño || c >= this.tamaño || this.matriz[f][c] === '🚢') {
+                return false;
             }
         }
-        this.barcos.push(barco);
+        return true;
     }
 
     atacar(fila, columna) {
