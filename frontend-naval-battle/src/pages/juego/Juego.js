@@ -1,5 +1,5 @@
-import { Tablero } from '../models/Tablero.js';
-import { Jugador } from '../models/Jugador.js';
+import { Tablero } from '../../models/Tablero.js';
+import { Jugador } from '../../models/Jugador.js';
 
 export class Juego {
     constructor() {
@@ -100,4 +100,45 @@ export class Juego {
         console.log("Tablero de la Máquina:");
         this.tableroMaquina.imprimir();
     }
+/*
+        import { Juego } from '../models/Juego.js';
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const juego = new Juego();
+            juego.iniciar(); // Inicializa el juego
+
+            let colocandoBarcos = true; // Estado para saber si estamos colocando barcos
+
+            document.getElementById("board-p1").addEventListener("click", (event) => {
+                if (!colocandoBarcos) return; // Si ya se colocaron los barcos, ignorar
+                
+                const target = event.target.closest("button");
+                if (!target) return;
+                
+                let fila = parseInt(target.dataset.row);
+                let columna = parseInt(target.dataset.col);
+                
+                if (juego.colocarBarcoUsuario(fila, columna)) {
+                    console.log("Barco colocado en:", fila, columna);
+                }
+
+                if (juego.barcosColocados()) {
+                    colocandoBarcos = false;
+                    console.log("Todos los barcos colocados, ¡empieza la batalla!");
+                }
+            });
+            
+            document.getElementById("board-m1").addEventListener("click", (event) => {
+                if (colocandoBarcos) return; // No atacar si aún no se han colocado los barcos
+                
+                const target = event.target.closest("button");
+                if (!target) return;
+                
+                let fila = parseInt(target.dataset.row);
+                let columna = parseInt(target.dataset.col);
+                
+                juego.realizarDisparo(fila, columna);
+            });
+        });
+   */
 }

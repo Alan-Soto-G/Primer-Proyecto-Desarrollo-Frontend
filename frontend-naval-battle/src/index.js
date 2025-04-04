@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+import Helper from './helper.js';
+Helper.loadView('iniciarsesion', {});
+/*document.addEventListener('DOMContentLoaded', function() {
+    
+    
     const fondo = document.getElementById('fondo');
     
     function ajustarFondo() {
@@ -18,3 +22,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', ajustarFondo);
     window.addEventListener('orientationchange', ajustarFondo);
 });
+*/

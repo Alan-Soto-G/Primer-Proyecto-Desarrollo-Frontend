@@ -1,4 +1,4 @@
-import { Barco } from '../models/Barco';
+import { Barco } from './Barco';
 
 export class Jugador {
     constructor(nombre) {
