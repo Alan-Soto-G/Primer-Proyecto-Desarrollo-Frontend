@@ -1,38 +1,4 @@
-/* RESET TOTAL - Elimina márgenes ocultos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* Base al 100% del viewport SIN scroll */
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Fondo que cubre TODO */
-.fondo-completo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('assets/fondo.webp'); /* Cambia la ruta */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
-/* Ajuste ESPECÍFICO para iPad (4:3) */
-@media (aspect-ratio: 4/3) {
-    .fondo-completo {
-        background-size: 100% 100%; /* Fuerza estiramiento */
-    }
-}
-/*Eso es de Laura */
 /* Reset CSS */
 * {
     margin: 0;
@@ -54,7 +20,7 @@ html, body {
     width: 100%; /* Asegura que el ancho cubra toda la ventana */
     height: 100%; /* Asegura que la altura cubra toda la ventana */
     min-height: 100vh; /* Ajusta dinámicamente la altura para dispositivos móviles */
-    background-image: url('../assets/images/inicio.jpg'); /* Ruta correcta */
+    background-image: url('assets/images/inicio.jpg'); /* Ruta correcta */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -73,6 +39,118 @@ html, body {
         height: calc(100vh - env(safe-area-inset-bottom)); /* Ajusta para pantallas pequeñas */
     }
 }
+/*------------------------------------------------------------------------------------*/
+
+/* Contenedor de las imágenes */
+.contenedor-imagen {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Apila las imágenes verticalmente */
+    align-items: center; /* Centra las imágenes horizontalmente */
+    padding-top: 0; /* Reduce el espacio superior */
+    padding-bottom: 0%; /* Agrega espacio inferior al contenedor */
+    z-index: 1;
+    
+}
+
+/* Estilo para la imagen superior */
+.imagen-superior {
+    width: 40%; /* Ajusta el tamaño relativo al ancho de la ventana */
+    max-width: 400px; /* Tamaño máximo para evitar que sea demasiado grande */
+    height: auto; /* Mantiene la proporción */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Estilo para la segunda imagen */
+.segunda-imagen {
+    width: 35%; /* Un poco más pequeña que la primera */
+    max-width: 350px; /* Tamaño máximo para evitar que sea demasiado grande */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Agrega espacio inferior a la segunda imagen */
+    object-fit: contain;
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .imagen-superior {
+        width: 60%; /* Ajusta el tamaño en pantallas pequeñas */
+        max-width: 300px;
+    }
+
+    .segunda-imagen {
+        width: 55%; /* Ajusta el tamaño en pantallas pequeñas */
+        max-width: 280px;
+    }
+}
+
+/* Ajustes para pantallas horizontales (celulares girados) */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .contenedor-imagen {
+        padding-top: 2px; /* Reduce aún más el espacio superior */
+        padding-bottom: 5px; /* Ajusta el espacio inferior */
+        gap: 10px; /* Reduce el espacio entre imágenes */
+    }
+
+    .imagen-superior {
+        width: 50%; /* Ajusta el tamaño en modo horizontal */
+        max-width: 250px;
+    }
+
+    .segunda-imagen {
+        width: 45%; /* Ajusta el tamaño en modo horizontal */
+        max-width: 220px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Estilos del tablero*/
 .boards-container {
